@@ -1,0 +1,7 @@
+123456;João da Silva;33;M;Pós-graduação;Computação;3000
+138644;Maria Sampaio;22;F;Ensino Médio;Administracão;1500
+324578;Lucas Gusmao;18;M;Graduação;Computação;10000
+123459;Isabella Nicácio;18;F;Graduação;Biologia;7000
+987462;Arthur Braga;20;M;Doutorado;Artes Cênicas;14000
+549783;Morgana Dark;200;F;Mestrado;Medicina;50000
+749683;Victor Vieira;19;M;Alimenticio;Analfabeto Funcional;1000
