@@ -4,4 +4,4 @@
 123459;Isabella Nicácio;18;F;Graduação;Biologia;7000
 987462;Arthur Braga;20;M;Doutorado;Artes Cênicas;14000
 549783;Morgana Dark;200;F;Mestrado;Medicina;50000
-749683;Victor Vieira;19;M;Alimenticio;Analfabeto Funcional;1000
+749683;Victor Vieira;19;M;Alimenticio;Analfabeto;1000

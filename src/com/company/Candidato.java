@@ -1,12 +1,34 @@
+package com.company;
+
 public class Candidato {
 
     private int identidade;
     private String nome;
-    private String escolaridade;
-    private String areaDeAtuacao;
-    private Float pretencaoSalarial;
     private int idade;
     private char sexo;
+    private String escolaridade;
+    private String areaDeAtuacao;
+    private float pretencaoSalarial;
+
+    Candidato() {}
+
+    Candidato(
+        String identidade,
+        String nome,
+        String idade,
+        String sexo,
+        String escolaridade,
+        String areaDeAtuacao,
+        String pretencaoSalarial
+    ) {
+        setIdentidade(Integer.parseInt(identidade));
+        setNome(nome);
+        setEscolaridade(escolaridade);
+        setAreaDeAtuacao(areaDeAtuacao);
+        setPretencaoSalarial(Float.parseFloat(pretencaoSalarial));
+        setIdade(Integer.parseInt(idade));
+        setSexo(sexo.charAt(0));
+    }
 
     public int getIdentidade() {
         return identidade;
@@ -62,5 +84,10 @@ public class Candidato {
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d;%s;%d;%c;%s;%s;%f", identidade, nome, idade, sexo, escolaridade, areaDeAtuacao, pretencaoSalarial);
     }
 }

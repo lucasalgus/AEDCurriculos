@@ -1,9 +1,27 @@
+package com.company;
+
 public class Empresa {
     String nome;
     String areaAtuacao;
     int quantVagas;
     String escolaridadeMin;
-    Float salarioMax;
+    float salarioMax;
+
+    Empresa() {}
+
+    Empresa(
+            String nome,
+            String areaAtuacao,
+            String quantVagas,
+            String escolaridadeMin,
+            String salarioMax
+    ) {
+        setNome(nome);
+        setAreaAtuacao(areaAtuacao);
+        setQuantVagas(Integer.parseInt(quantVagas));
+        setEscolaridadeMin(escolaridadeMin);
+        setSalarioMax(Float.parseFloat(salarioMax));
+    }
 
     public String getNome() {
         return nome;
@@ -43,5 +61,10 @@ public class Empresa {
 
     public void setSalarioMax(Float salarioMax) {
         this.salarioMax = salarioMax;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s;%s;%d;%s;%f", nome, areaAtuacao, quantVagas, escolaridadeMin, salarioMax);
     }
 }
