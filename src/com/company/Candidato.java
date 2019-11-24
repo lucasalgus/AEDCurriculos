@@ -8,7 +8,7 @@ public class Candidato {
     private char sexo;
     private String escolaridade;
     private String areaDeAtuacao;
-    private float pretencaoSalarial;
+    private float pretensaoSalarial;
 
     Candidato() {}
 
@@ -19,13 +19,13 @@ public class Candidato {
         String sexo,
         String escolaridade,
         String areaDeAtuacao,
-        String pretencaoSalarial
+        String pretensaoSalarial
     ) {
         setIdentidade(Integer.parseInt(identidade));
         setNome(nome);
         setEscolaridade(escolaridade);
         setAreaDeAtuacao(areaDeAtuacao);
-        setPretencaoSalarial(Float.parseFloat(pretencaoSalarial));
+        setPretensaoSalarial(Float.parseFloat(pretensaoSalarial));
         setIdade(Integer.parseInt(idade));
         setSexo(sexo.charAt(0));
     }
@@ -62,12 +62,12 @@ public class Candidato {
         this.areaDeAtuacao = areaDeAtuacao;
     }
 
-    public Float getPretencaoSalarial() {
-        return pretencaoSalarial;
+    public Float getPretensaoSalarial() {
+        return pretensaoSalarial;
     }
 
-    public void setPretencaoSalarial(Float pretencaoSalarial) {
-        this.pretencaoSalarial = pretencaoSalarial;
+    public void setPretensaoSalarial(Float pretensaoSalarial) {
+        this.pretensaoSalarial = pretensaoSalarial;
     }
 
     public int getIdade() {
@@ -88,6 +88,10 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return String.format("%d;%s;%d;%c;%s;%s;%f", identidade, nome, idade, sexo, escolaridade, areaDeAtuacao, pretencaoSalarial);
+        return String.format("%d;%s;%d;%c;%s;%s;%f", identidade, nome, idade, sexo, escolaridade, areaDeAtuacao, pretensaoSalarial);
+    }
+
+    public String toPrettyString() {
+        return toString().replace(";", "\n");
     }
 }

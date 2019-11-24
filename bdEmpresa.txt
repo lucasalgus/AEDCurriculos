@@ -1,8 +1,8 @@
-ATP Produtos Químicos;Computação;5;Graduação;2500
-TWeb Sistemas;Administração;3;Mestrado;4000
-PMod Tubulações;Engenharia Elétrica;1;Graduação;3500
-Letras;Computação;2;Graduação;11000
-BioVida;Medicina;5;Pós-Graduação;20000
-Pensar;Psicologia;4;Doutorado;27000
-Adm;Administração;1;Ensino Médio;3500
-Supermercados BH;Alimenticio;10;Analfabeto Funcional;1000
+ATP Produtos Químicos;Computação;5;Graduação;2500.000000
+TWeb Sistemas;Administração;3;Mestrado;4000.000000
+PMod Tubulações;Engenharia Elétrica;1;Graduação;3500.000000
+Letras;Computação;2;Graduação;11000.000000
+BioVida;Medicina;5;Pós-Graduação;20000.000000
+Pensar;Psicologia;4;Doutorado;27000.000000
+Adm;Administração;1;Ensino Médio;3500.000000
+Supermercados BH;Alimenticio;10;Analfabeto Funcional;1000.000000

@@ -56,7 +56,6 @@ public class CandidatoDAO {
 
         if (!candidatoExistente) {
             candidatos.inserirFinal(c);
-            System.out.println();
         }
     }
 

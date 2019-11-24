@@ -20,7 +20,7 @@ public class Empresa {
         setAreaAtuacao(areaAtuacao);
         setQuantVagas(Integer.parseInt(quantVagas));
         setEscolaridadeMin(escolaridadeMin);
-        setSalarioMax(Float.parseFloat(salarioMax));
+        setSalarioMax(Float.parseFloat(salarioMax.replace(",", ".")));
     }
 
     public String getNome() {
@@ -66,5 +66,9 @@ public class Empresa {
     @Override
     public String toString() {
         return String.format("%s;%s;%d;%s;%f", nome, areaAtuacao, quantVagas, escolaridadeMin, salarioMax);
+    }
+
+    public String toPrettyString() {
+        return toString().replace(";", "\n");
     }
 }
