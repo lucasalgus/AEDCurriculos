@@ -6,7 +6,7 @@ public class Candidato {
     private String nome;
     private int idade;
     private char sexo;
-    private String escolaridade;
+    private int escolaridade;
     private String areaDeAtuacao;
     private float pretensaoSalarial;
 
@@ -25,7 +25,7 @@ public class Candidato {
         setNome(nome);
         setEscolaridade(escolaridade);
         setAreaDeAtuacao(areaDeAtuacao);
-        setPretensaoSalarial(Float.parseFloat(pretensaoSalarial));
+        setPretensaoSalarial(Float.parseFloat(pretensaoSalarial.replace(",", ".")));
         setIdade(Integer.parseInt(idade));
         setSexo(sexo.charAt(0));
     }
@@ -46,12 +46,10 @@ public class Candidato {
         this.nome = nome;
     }
 
-    public String getEscolaridade() {
-        return escolaridade;
-    }
+    public int getEscolaridade() { return escolaridade; }
 
     public void setEscolaridade(String escolaridade) {
-        this.escolaridade = escolaridade;
+        this.escolaridade = convertEscolaridade(escolaridade);
     }
 
     public String getAreaDeAtuacao() {
@@ -88,10 +86,50 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return String.format("%d;%s;%d;%c;%s;%s;%f", identidade, nome, idade, sexo, escolaridade, areaDeAtuacao, pretensaoSalarial);
+        return String.format("%d;%s;%d;%c;%s;%s;%f", identidade, nome, idade, sexo, convertEscolaridade(escolaridade), areaDeAtuacao, pretensaoSalarial);
     }
 
     public String toPrettyString() {
         return toString().replace(";", "\n");
+    }
+
+    public int convertEscolaridade(String escolaridade){
+        switch (escolaridade){
+            case "Analfabeto":
+                return 1;
+            case "Ensino Fundamental":
+                return 2;
+            case "Ensino Médio":
+                return 3;
+            case "Graduação":
+                return 4;
+            case "Pós-Graduação":
+                return 5;
+            case "Mestrado":
+                return 6;
+            case "Doutorado":
+                return 7;
+        }
+        return 0;
+    }
+
+    public String convertEscolaridade(int escolaridade){
+        switch (escolaridade){
+            case 1:
+                return "Analfabeto";
+            case 2:
+                return "Ensino Fundamental";
+            case 3:
+                return "Ensino Médio";
+            case 4:
+                return "Graduação";
+            case 5:
+                return "Pós-Graduação";
+            case 6:
+                return "Mestrado";
+            case 7:
+                return "Doutorado";
+        }
+        return " ";
     }
 }

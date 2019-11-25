@@ -73,4 +73,18 @@ public class ListaCandidato {
 
         return dados.toString();
     }
+
+    public int numCandidatos() {
+        int contCandidatos = 0;
+
+        CelulaCandidato aux;
+        aux = primeiro.proximo;
+
+        while (aux != null) {
+            contCandidatos++;
+            aux = aux.proximo;
+        }
+
+        return contCandidatos;
+    }
 }

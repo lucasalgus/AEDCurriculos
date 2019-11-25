@@ -55,6 +55,18 @@ public class CLI {
                 case 8:
                     atualizarVaga();
                     break;
+                case 9:
+                    buscarVagas();
+                    break;
+                case 10:
+                    exibirRelatorio();
+                    break;
+                case 11:
+
+                    break;
+                case 12:
+
+                    break;
             }
 
             scanner.nextLine();
@@ -210,6 +222,22 @@ public class CLI {
         System.out.println(e.toPrettyString());
     }
 
+    private void buscarVagas() {
+        System.out.println("Digite a área de atuação: ");
+        String areaAtuacao = scanner.nextLine();
+
+        System.out.println("Digite a escolaridade máxima: ");
+        int escolaridade = scanner.nextInt();
+
+        ListaEmpresa le = empresaDAO.buscarVagas(areaAtuacao, escolaridade);
+
+        if (le == null) {
+            System.out.println("A vaga não existe.");
+            return;
+        }
+        le.imprimir();
+    }
+
     private void atualizarVaga() {
         System.out.println("Digite o nome da empresa: ");
         Empresa e = empresaDAO.buscar(scanner.nextLine());
@@ -238,5 +266,10 @@ public class CLI {
         String nomeEmpresa = scanner.nextLine();
 
         empresaDAO.excluir(nomeEmpresa);
+    }
+
+    private void exibirRelatorio(){
+        candidatoDAO.numCandidatos();
+        empresaDAO.numVagas();
     }
 }

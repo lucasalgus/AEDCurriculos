@@ -64,4 +64,9 @@ public class CandidatoDAO {
         arquivoEscrita.escrever(candidatos.serializarLista());
         arquivoEscrita.fecharArquivo();
     }
+
+    public void numCandidatos(){
+        System.out.print("Total de candidatos: " + candidatos.numCandidatos() + "\n");
+    }
+
 }

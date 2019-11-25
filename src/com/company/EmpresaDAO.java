@@ -39,6 +39,10 @@ public class EmpresaDAO {
         return empresas.localizar(nomeEmpresa);
     }
 
+    public ListaEmpresa buscarVagas(String areaAtuacao, int escolaridadeMin) {
+        return empresas.localizarVagas(areaAtuacao, escolaridadeMin);
+    }
+
     public void atualizar(Empresa e) {
         empresas.retirar(e.getNome());
         empresas.inserirFinal(e);
@@ -62,4 +66,9 @@ public class EmpresaDAO {
         arquivoEscrita.escrever(empresas.serializarLista());
         arquivoEscrita.fecharArquivo();
     }
+
+    public void numVagas(){
+        System.out.print("Total de vagas: " + empresas.numVagas() + "\n");
+    }
+
 }
