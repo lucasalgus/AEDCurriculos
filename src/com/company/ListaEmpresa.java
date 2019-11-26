@@ -1,8 +1,8 @@
 package com.company;
 
 public class ListaEmpresa {
-    private CelulaEmpresa primeiro;
-    private CelulaEmpresa ultimo;
+    public CelulaEmpresa primeiro;
+    public CelulaEmpresa ultimo;
 
     public ListaEmpresa() {
         primeiro = new CelulaEmpresa();
@@ -111,6 +111,29 @@ public class ListaEmpresa {
 
                 // avançamos na lista encadeada.
                 aux = aux.proximo;
+            }
+        }
+    }
+    
+    public void imprimirDescricao() {
+    	CelulaEmpresa aux;
+
+        // o ponteiro aux será utilizado para percorrermos a lista encadeada.
+        aux = primeiro.proximo;
+
+        if (aux == null)
+        {
+            System.out.println("A lista de empresas está vazia.");
+        }
+        else
+        {
+        	int cont = 1;
+            // enquanto o ponteiro aux não tiver percorrido toda a lista encadeada...
+            while (aux != null)
+            {
+            	System.out.println(cont + " - " + aux.item.getNome());
+            	aux = aux.proximo;
+            	cont++;
             }
         }
     }

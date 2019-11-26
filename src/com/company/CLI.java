@@ -6,11 +6,13 @@ public class CLI {
     Scanner scanner;
     CandidatoDAO candidatoDAO;
     EmpresaDAO empresaDAO;
+    AlocacaoVagasDAO alocacaoVagasDAO;
 
     CLI() {
         scanner = new Scanner(System.in);
         candidatoDAO = new CandidatoDAO();
         empresaDAO = new EmpresaDAO();
+        alocacaoVagasDAO = new AlocacaoVagasDAO();
 
         initialize();
     }
@@ -20,6 +22,7 @@ public class CLI {
         candidatoDAO.lerDados(scanner.nextLine());
         System.out.println("Digite o nome do arquivo de empresas: ");
         empresaDAO.lerDados(scanner.nextLine());
+        alocacaoVagasDAO.lerDados("bdAlocacaoCandidatos.txt");
 
         do {
             exibirOpcoes();
@@ -62,16 +65,18 @@ public class CLI {
                     exibirRelatorio();
                     break;
                 case 11:
-
+                	alocarCandidatos();
                     break;
                 case 12:
-
+                	alocarTodasVagas();
                     break;
             }
 
             scanner.nextLine();
         } while (true);
     }
+    
+    
 
     private void exibirOpcoes() {
         System.out.println("Escolha uma op√ß√£o: ");
@@ -271,5 +276,67 @@ public class CLI {
     private void exibirRelatorio(){
         candidatoDAO.numCandidatos();
         empresaDAO.numVagas();
+    }
+    
+    private void alocarCandidatos() {
+    	System.out.println("Digite o nome da empresa para alocar candidatos: ");
+    	empresaDAO.empresas.imprimirDescricao();
+    	String nome = scanner.nextLine();
+    	
+    	Empresa e = empresaDAO.empresas.localizar(nome);
+    	
+    	String qualificados = candidatoDAO.candidatos.getQualificados(e.areaAtuacao, e.escolaridadeMin, e.quantVagas);
+    	
+    	if(!qualificados.equals("")) {
+    		String result = "Vaga: \n";
+        	result += e.nome + " - " + e.areaAtuacao + " - " + e.quantVagas + " vagas - " + "Sal·rio: " + e.salarioMax;
+        	result += "\nCandidatos Selecionados:\n";
+        	result += candidatoDAO.candidatos.getQualificados(e.areaAtuacao, e.escolaridadeMin, e.quantVagas);
+        	
+        	alocacaoVagasDAO.cadastrar(result);
+        	alocacaoVagasDAO.salvarDados();
+        	
+        	System.out.println(result);
+    	}
+    	
+    	
+    }
+    
+    private void alocarTodasVagas() {
+    	
+    	System.out.println("Alocando vagas...");
+    	
+    	CelulaEmpresa aux;
+
+    	aux = empresaDAO.empresas.primeiro.proximo;
+
+        if (aux == null)
+        {
+            System.out.println("A lista de empresas est√° vazia.");
+        }
+        else
+        {
+            while (aux != null)
+            {
+            	Empresa e = aux.item;
+            	
+            	String qualificados = candidatoDAO.candidatos.getQualificados(e.areaAtuacao, e.escolaridadeMin, e.quantVagas);
+            	
+            	if(!qualificados.equals("")) {
+            		String result = "Vaga: \n";
+                	result += e.nome + " - " + e.areaAtuacao + " - " + e.quantVagas + " vagas - " + "Sal·rio: " + e.salarioMax;
+                	result += "\nCandidatos Selecionados:\n";
+                	result += candidatoDAO.candidatos.getQualificados(e.areaAtuacao, e.escolaridadeMin, e.quantVagas);
+                	
+                	alocacaoVagasDAO.cadastrar(result);
+                	alocacaoVagasDAO.salvarDados();
+                	System.out.println(result);
+                	System.out.println();
+            	}
+            	aux = aux.proximo;
+            }
+        }
+    	
+    	
     }
 }

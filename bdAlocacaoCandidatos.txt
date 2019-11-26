@@ -1,0 +1,17 @@
+Vaga: 
+ATP Produtos Químicos - Computação - 5 vagas - Sal�rio: 2500.0
+Candidatos Selecionados:
+324578 - Lucas Gusmao - 18 anos - Escolaridade: 4
+123456 - João da Silva - 30 anos - Escolaridade: 4
+
+Vaga: 
+Letras - Computação - 2 vagas - Sal�rio: 11000.0
+Candidatos Selecionados:
+324578 - Lucas Gusmao - 18 anos - Escolaridade: 4
+123456 - João da Silva - 30 anos - Escolaridade: 4
+
+Vaga: 
+BioVida - Medicina - 5 vagas - Sal�rio: 20000.0
+Candidatos Selecionados:
+549783 - Morgana Dark - 200 anos - Escolaridade: 6
+

@@ -87,4 +87,35 @@ public class ListaCandidato {
 
         return contCandidatos;
     }
+    
+    public String getQualificados(String areaAtuacao, int escolaridadeMin, int numVagas) {
+    	CelulaCandidato aux;
+
+    	String qualificados = "";
+    	
+        // o ponteiro aux será utilizado para percorrermos a lista encadeada.
+        aux = primeiro.proximo;
+
+        if (aux == null)
+        {
+            System.out.println("A lista de candidatos está vazia.");
+        }
+        else
+        {
+        	
+            // enquanto o ponteiro aux não tiver percorrido toda a lista encadeada...
+            while (aux != null)
+            {
+            	if(numVagas > 0 && aux.item.getAreaDeAtuacao().equals(areaAtuacao) && aux.item.getEscolaridade() >= escolaridadeMin) {
+            		qualificados += aux.item.getIdentidade() + " - " + aux.item.getNome() + " - " + aux.item.getIdade() + " anos" + " - " + 
+            				"Escolaridade: " + aux.item.getEscolaridade();
+            		qualificados += "\n";
+            		numVagas--;
+            	}
+            	aux = aux.proximo;
+            }
+        }
+        
+        return qualificados;
+    }
 }
